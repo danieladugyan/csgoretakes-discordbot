@@ -59,4 +59,4 @@ client.once('ready', () => {
   server.listen(port, host);
 });
 
-client.login(apikey);
+client.login(process.env.APIKEY);
