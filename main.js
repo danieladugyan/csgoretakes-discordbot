@@ -9,7 +9,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 port = process.env.PORT || 6513;
-host = '127.0.0.1';
+host = '0.0.0.0';
 let body = '';
 let playerData = "";
 server = http.createServer((req, res) => {
