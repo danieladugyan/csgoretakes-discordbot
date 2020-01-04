@@ -8,7 +8,7 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
 
-port = 6513;
+port = process.env.PORT || 6513;
 host = '127.0.0.1';
 let body = '';
 let playerData = "";
