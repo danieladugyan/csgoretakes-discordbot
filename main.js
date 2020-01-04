@@ -2,18 +2,24 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 const http = require('http');
-const fs = require('fs');
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
 
 port = process.env.PORT || 6513;
-host = '0.0.0.0';
+host = '127.0.0.1';
+
 let body = '';
 let playerData = "";
+
 server = http.createServer((req, res) => {
+  console.log("Server running on "+port);
+
   if (req.method == 'POST') {
+    console.log("------------");
+    console.log("POST");
+
     res.writeHead(200, {'Content-Type': 'text/html'});
     body = ""
 
@@ -32,6 +38,8 @@ server = http.createServer((req, res) => {
           (playerTeam == 'T') ? usr.setVoiceChannel(channels[0]) : usr.setVoiceChannel(channels[1]);
         })
         .catch(console.error);
+
+      console.log("------------");
       res.end('');
     });
   } else {
@@ -54,8 +62,8 @@ playerList = {
 }
 
 client.once('ready', () => {
-  console.log('Running!');
   discServer = client.guilds.first();
+  console.log('Logged in, server starting!');
   server.listen(port, host);
 });
 
