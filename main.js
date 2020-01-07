@@ -8,7 +8,6 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 port = process.env.PORT || 6513;
-host = '0.0.0.0';
 
 let body = '';
 let playerData = "";
@@ -64,7 +63,7 @@ playerList = {
 client.once('ready', () => {
   discServer = client.guilds.first();
   console.log('Logged in, server starting!');
-  server.listen(port, host);
+  server.listen(port);
 });
 
 client.login(process.env.APIKEY);
