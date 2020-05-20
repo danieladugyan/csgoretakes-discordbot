@@ -34,7 +34,7 @@ server = http.createServer((req, res) => {
 
       discServer.fetchMember(playerList[Number(playerid)])
         .then((usr) => {
-          (playerTeam == 'T') ? usr.setVoiceChannel(channels[0]) : usr.setVoiceChannel(channels[1]);
+          (playerTeam == 'CT') ? usr.setVoiceChannel(channels[0]) : usr.setVoiceChannel(channels[1]);
         })
         .catch(console.error);
 
@@ -53,11 +53,12 @@ server = http.createServer((req, res) => {
 
 channels = ['362310585175506944', '650308364299010087']; // [0] matchrum
 playerList = {
-  76561198063353595: '198471337734438912',
-  76561198233132160: '226333548863291392',
-  76561198171588038: '225903411155959819',
-  76561198073265867: '280779851181588480',
-  76561198236965602: '184295071774932992'
+  76561198063353595: '198471337734438912', // voltiq
+  76561198233132160: '226333548863291392', // l0g3n
+  76561198171588038: '225903411155959819', // spaden
+  76561198073265867: '280779851181588480', // creepz
+  76561198236965602: '184295071774932992', // nacho
+  76561198129947173: '180081429009530880'  // fanta
 }
 
 client.once('ready', () => {
